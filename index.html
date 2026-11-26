@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Африка: Географическая Викторина и Справочник</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+
+    <div class="app-container">
+        <!-- Верхняя навигация между окнами -->
+        <nav class="top-nav">
+            <button id="nav-quiz-btn" class="nav-tab active"> Викторина</button>
+            <button id="nav-guide-btn" class="nav-tab"> Справочник (Чтение)</button>
+        </nav>
+
+        <!-- ОКНО ВИКТОРИНЫ -->
+        <div id="quiz-module" class="module active">
+            <!-- Стартовый экран -->
+            <div id="start-screen" class="screen active">
+                <div class="badge">ГЕОГРАФИЯ • 7–11 КЛАССЫ</div>
+                <h1>ТАЙНЫ И РЕКОРДЫ <span class="highlight">АФРИКИ</span></h1>
+                <p class="subtitle">Проверь свои знания о самом жарком континенте Земли: от пустыни Сахара до мыса Игольный. Можно сначала почитать справочник!</p>
+
+                <div class="stats-preview">
+                    <div class="stat-box">
+                        <span class="stat-num">15</span>
+                        <span class="stat-label">Вопросов</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">20с</span>
+                        <span class="stat-label">На ответ</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" id="best-score-display">0</span>
+                        <span class="stat-label">Рекорд</span>
+                    </div>
+                </div>
+
+                <div class="start-actions">
+                    <button id="start-btn" class="btn primary-btn">НАЧАТЬ ИГРУ</button>
+                    <button id="go-to-guide-btn" class="btn outline-btn">ЧИТАТЬ СПРАВОЧНИК</button>
+                </div>
+            </div>
+
+            <!-- Экран игры -->
+            <div id="quiz-screen" class="screen">
+                <div class="quiz-header">
+                    <div class="progress-info">
+                        <span>Вопрос <b id="current-question-num">1</b> из <b id="total-questions-num">15</b></span>
+                        <span class="score-badge">Очки: <b id="score">0</b></span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar" class="progress-bar-fill"></div>
+                    </div>
+                    <div class="timer-container">
+                        <div class="timer-circle">
+                            <span id="timer">20</span>
+                        </div>
+                        <button id="fifty-fifty-btn" class="lifeline-btn" title="Убрать два неверных ответа">50 / 50</button>
+                    </div>
+                </div>
+
+                <div class="question-box">
+                    <span id="category-tag" class="category-tag">Рельеф и природа</span>
+                    <h2 id="question-text">Загрузка вопроса...</h2>
+                </div>
+
+                <div id="options-container" class="options-grid"></div>
+
+                <div id="fact-box" class="fact-box hidden">
+                    <strong> Географический факт:</strong>
+                    <p id="fact-text"></p>
+                </div>
+
+                <button id="next-btn" class="btn secondary-btn hidden">СЛЕДУЮЩИЙ ВОПРОС ➔</button>
+            </div>
+
+            <!-- Экран результатов -->
+            <div id="result-screen" class="screen">
+                <div class="trophy-icon" id="result-emoji">🏆</div>
+                <h2 id="result-title">Отличный результат!</h2>
+                <p id="result-subtitle" class="subtitle">Вы настоящий знаток Африки!</p>
+
+                <div class="final-stats">
+                    <div class="final-stat-item">
+                        <span>Набрано очков:</span>
+                        <strong id="final-score">0</strong>
+                    </div>
+                    <div class="final-stat-item">
+                        <span>Правильных ответов:</span>
+                        <strong id="correct-answers-count">0 / 15</strong>
+                    </div>
+                    <div class="final-stat-item">
+                        <span>Ваш рекорд:</span>
+                        <strong id="final-best-score">0</strong>
+                    </div>
+                </div>
+
+                <button id="restart-btn" class="btn primary-btn">ИГРАТЬ СНОВА</button>
+            </div>
+        </div>
+
+        <!-- ОКНО ДЛЯ ЧТЕНИЯ (СПРАВОЧНИК) -->
+        <div id="guide-module" class="module">
+            <div class="guide-header">
+                <span class="badge">УЧЕБНЫЙ МАТЕРИАЛ</span>
+                <h2>География Африки: <span class="highlight">Краткий гид</span></h2>
+                <p class="subtitle">Изучите ключевые темы перед викториной — здесь собраны главные факты о рельефе, реках, озёрах, пустынях и странах.</p>
+
+                <div class="guide-controls">
+                    <input type="text" id="guide-search" class="guide-search" placeholder="🔍 Поиск по темам или фактам (например: Нил, Сахара, ЮАР)...">
+                    <div id="guide-filters" class="guide-filters"></div>
+                </div>
+            </div>
+
+            <div id="articles-list" class="articles-list"></div>
+
+            <div class="guide-footer">
+                <button id="back-to-quiz-btn" class="btn primary-btn">ПРОВЕРИТЬ ЗНАНИЯ В ВИКТОРИНЕ ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
